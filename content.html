@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content — I Belong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:    #000000;
+      --deep:     #0C0C0E;
+      --surface:  #111115;
+      --gold:     #B8973A;
+      --gold-lt:  #D4AF5A;
+      --gold-dim: #7A6228;
+      --cream:    #F0EAD6;
+      --white:    #E8E4DC;
+      --muted:    #6B6660;
+      --rule:     rgba(184,151,58,0.18);
+      --rule-md:  rgba(184,151,58,0.32);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black); color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 200px 200px; pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+    * { position: relative; z-index: 1; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 64px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0) 100%);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em; color: var(--gold); line-height: 1; }
+    .nl-i   { color: var(--gold); font-weight: 700; }
+    .nl-slash { color: var(--gold-dim); font-weight: 300; margin: 0 4px; opacity: 0.7; }
+    .nl-b   { color: var(--cream); font-weight: 400; font-style: italic; }
+    .nav-center { display: flex; gap: 44px; list-style: none; }
+    .nav-center a { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.25s; }
+    .nav-center a:hover, .nav-center a.active { color: var(--gold-lt); }
+    .nav-center a.active { color: var(--gold); }
+    .nav-cta { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); padding: 11px 28px; text-decoration: none; transition: border-color 0.25s, color 0.25s, background 0.25s; }
+    .nav-cta:hover { border-color: var(--gold); background: rgba(184,151,58,0.07); color: var(--gold-lt); }
+
+    /* PAGE HERO */
+    .page-hero {
+      min-height: 56vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 160px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(184,151,58,0.055) 0%, transparent 65%); pointer-events: none; }
+    .page-eyebrow { font-family: 'Inter', sans-serif; font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 24px; }
+    .hero-rule { display: block; width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim), transparent); margin: 0 auto 28px; }
+    .hero-rule-bottom { display: block; width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim), transparent); margin: 28px auto 0; }
+    .page-heading { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.05; color: var(--cream); margin-bottom: 20px; letter-spacing: 0.01em; }
+    .page-heading em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .page-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; font-style: italic; color: var(--muted); max-width: 500px; line-height: 1.75; }
+
+    /* SHARED SECTION */
+    .section { padding: 100px 24px; }
+    .section-inner { max-width: 1060px; margin: 0 auto; }
+    .eyebrow { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); opacity: 0.65; margin-bottom: 20px; }
+    .sec-heading { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.1; color: var(--cream); margin-bottom: 20px; }
+    .sec-body { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--muted); line-height: 1.85; max-width: 560px; }
+    .surface-band { background: var(--surface); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .hairline { display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 48px; max-width: 900px; margin: 0 auto; }
+    .hairline::before { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--rule-md)); }
+    .hairline::after  { content: ''; flex: 1; height: 1px; background: linear-gradient(to left,  transparent, var(--rule-md)); }
+    .hairline-center { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.3em; opacity: 0.5; }
+    .btn-gold { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #000; background: var(--gold); padding: 16px 42px; text-decoration: none; display: inline-block; transition: background 0.25s, transform 0.2s; }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-outline { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); padding: 16px 42px; text-decoration: none; display: inline-block; transition: border-color 0.25s, color 0.25s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--rule); padding: 64px 64px 48px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto auto; gap: 72px; align-items: start; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; }
+    .footer-brand-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--gold-dim); margin-top: 8px; }
+    .footer-col-head { font-family: 'Inter', sans-serif; font-size: 0.56rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); opacity: 0.55; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold-lt); }
+    .footer-bottom { max-width: 1100px; margin: 44px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-family: 'Inter', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; color: var(--muted); opacity: 0.45; }
+    .footer-suits { font-size: 0.78rem; letter-spacing: 0.3em; color: var(--gold-dim); }
+
+    @media (max-width: 860px) {
+      nav { padding: 20px 28px; } .nav-center { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      footer { padding: 48px 28px 36px; }
+    }
+    @media (max-width: 520px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); margin-bottom: 2px; }
+    .platform-card {
+      background: var(--black); padding: 56px 52px;
+      display: flex; flex-direction: column; gap: 24px;
+      transition: background 0.35s;
+      text-decoration: none;
+    }
+    .platform-card:hover { background: var(--surface); }
+    .platform-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold-dim); transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+    .platform-card:hover::before { transform: scaleX(1); }
+    .platform-icon { font-size: 1.8rem; color: var(--gold); opacity: 0.5; }
+    .platform-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--cream); }
+    .platform-handle { font-family: 'Inter', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold-dim); margin-top: -16px; }
+    .platform-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; color: var(--muted); line-height: 1.8; }
+    .platform-cta { font-family: 'Inter', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: auto; }
+
+    .content-types { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--rule); }
+    .ct-card { background: var(--surface); padding: 44px 40px; }
+    .ct-num { font-family: 'Inter', sans-serif; font-size: 0.56rem; letter-spacing: 0.2em; color: var(--gold); opacity: 0.5; margin-bottom: 14px; }
+    .ct-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--cream); margin-bottom: 12px; }
+    .ct-body { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.8; }
+
+    .cta-band { padding: 96px 24px; text-align: center; position: relative; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(184,151,58,0.05) 0%, transparent 70%); pointer-events: none; }
+    .cta-rule { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim), transparent); margin: 0 auto 40px; }
+    .cta-rule-b { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim), transparent); margin: 44px auto 0; }
+    .cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 700; color: var(--cream); margin-bottom: 16px; line-height: 1.1; }
+    .cta-heading em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .cta-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; font-weight: 400; color: var(--muted); max-width: 420px; margin: 0 auto 40px; line-height: 1.75; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      .platform-grid { grid-template-columns: 1fr; }
+      .content-types { grid-template-columns: 1fr; }
+      .platform-card { padding: 40px 32px; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">
+        <span class="nl-i">I</span><span class="nl-slash">/</span><span class="nl-b">Belong</span>
+      </span>
+    </a>
+    <ul class="nav-center">
+      <li><a href="index.html" class="">Home</a></li>
+      <li><a href="community.html" class="">Community</a></li>
+      <li><a href="study.html" class="">Study</a></li>
+      <li><a href="content.html" class="active">Content</a></li>
+      <li><a href="about.html" class="">About</a></li>
+    </ul>
+    <a href="join.html" class="nav-cta">Apply Now</a>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">Content & Media</p>
+    <span class="hero-rule"></span>
+    <h1 class="page-heading">Watch.<br><em>Learn. Repeat.</em></h1>
+    <p class="page-sub">Original content built to teach — not to entertain. Real hands, real decisions, real growth.</p>
+    <span class="hero-rule-bottom"></span>
+  </div>
+
+  <div style="padding:56px 0 0;"><div class="hairline"><div class="hairline-center">&#9824; &nbsp; &#9829; &nbsp; &#9827; &nbsp; &#9830;</div></div></div>
+
+  <!-- Platforms -->
+  <div class="section">
+    <div class="section-inner">
+      <div style="margin-bottom:56px;">
+        <p class="eyebrow">Where to Find Us</p>
+        <h2 class="sec-heading">Follow the game.</h2>
+        <p class="sec-body">We're building in public — on YouTube, Instagram, and beyond. Every platform has a different focus, all of it is free.</p>
+      </div>
+      <div class="platform-grid">
+        <a href="#" target="_blank" class="platform-card">
+          <div class="platform-icon">&#9654;</div>
+          <div class="platform-name">YouTube</div>
+          <div class="platform-handle">@IBelongPoker</div>
+          <p class="platform-desc">Long-form content — session vlogs, full hand history reviews, concept breakdowns, and live play. If you want to go deep, this is where you go.</p>
+          <span class="platform-cta">Subscribe &#8250;</span>
+        </a>
+        <a href="#" target="_blank" class="platform-card">
+          <div class="platform-icon">&#9670;</div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-handle">@IBelongPoker</div>
+          <p class="platform-desc">Short-form breakdowns, daily poker thoughts, behind-the-scenes community content, and quick strategy clips. Follow for the everyday stuff.</p>
+          <span class="platform-cta">Follow &#8250;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content types -->
+  <div class="surface-band">
+    <div class="section">
+      <div class="section-inner">
+        <div style="margin-bottom:56px;">
+          <p class="eyebrow">What We Make</p>
+          <h2 class="sec-heading">Content with a purpose.</h2>
+          <p class="sec-body">Everything we put out is built to move the needle. No filler. No hype. Just content that makes you think harder about the game.</p>
+        </div>
+        <div class="content-types">
+          <div class="ct-card">
+            <div class="ct-num">01</div>
+            <div class="ct-title">Session Vlogs</div>
+            <p class="ct-body">Live session recaps — what happened, what we did well, what we got wrong, and what we're working on. Honest and unfiltered.</p>
+          </div>
+          <div class="ct-card">
+            <div class="ct-num">02</div>
+            <div class="ct-title">Hand Breakdowns</div>
+            <p class="ct-body">Real hands from real sessions, broken down street by street. We show the thinking process — not just the outcome.</p>
+          </div>
+          <div class="ct-card">
+            <div class="ct-num">03</div>
+            <div class="ct-title">Concept Videos</div>
+            <p class="ct-body">One concept, explained clearly. Range construction, bet sizing, blockers, GTO vs exploit — the stuff that actually matters.</p>
+          </div>
+          <div class="ct-card">
+            <div class="ct-num">04</div>
+            <div class="ct-title">Live Play Footage</div>
+            <p class="ct-body">Uncut live play with commentary. Watch the decisions in real time — reads, timing, table dynamics, all of it.</p>
+          </div>
+          <div class="ct-card">
+            <div class="ct-num">05</div>
+            <div class="ct-title">Community Highlights</div>
+            <p class="ct-body">The best hands and discussions from inside the Discord — the community at work, shared with everyone.</p>
+          </div>
+          <div class="ct-card">
+            <div class="ct-num">06</div>
+            <div class="ct-title">Quick Strategy Clips</div>
+            <p class="ct-body">Short-form concepts for Instagram and YouTube Shorts. One idea, clearly explained, in under 60 seconds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="cta-rule"></div>
+    <h2 class="cta-heading">Want more than<br><em>free content?</em></h2>
+    <p class="cta-sub">Apply for membership and get inside the community where the real work happens.</p>
+    <div class="btn-row">
+      <a href="join.html" class="btn-gold">Apply Now</a>
+      <a href="community.html" class="btn-outline">See the Community</a>
+    </div>
+    <div class="cta-rule-b"></div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">I / Belong</div>
+        <div class="footer-brand-sub">Poker. Community. Mastery.</div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Navigate</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="study.html">Study</a></li>
+          <li><a href="content.html">Content</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Follow</p>
+        <ul>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="#" target="_blank">Twitter / X</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-head">Apply</p>
+        <ul>
+          <li><a href="join.html">Request a Seat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&#169; 2025 I Belong. All rights reserved.</p>
+      <p class="footer-suits">&#9824; &nbsp;&#9829; &nbsp;&#9827; &nbsp;&#9830;</p>
+    </div>
+  </footer>
+</body>
+</html>
